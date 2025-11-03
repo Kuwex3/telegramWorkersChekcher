@@ -5,6 +5,7 @@ from aiogram.filters.command import Command
 from aiogram.enums import ParseMode
 
 from bot.sources.keyboards import kb1
+import bot.handlers as handler
 
 import os
 from dotenv import load_dotenv
@@ -16,6 +17,8 @@ FM = os.getenv("FIRST_MESSAGE")
 
 bot = Bot(TOKEN)
 dp = Dispatcher()
+
+dp.include_router(handler.router)
 
 @dp.message(Command("start"))
 async def start_handler(message: types.message):
