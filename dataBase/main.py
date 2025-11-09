@@ -1,9 +1,10 @@
 import psycopg2 as ps
-from config import HOST, DATABASE, USR, PASSWORDDB
+from config import HOST, DATABASE, USR, PASSWORDDB, PORT
 
 
 conn = ps.connect(
     host = HOST,
+    port = PORT,
     database = DATABASE,
     user = USR,
     password = PASSWORDDB
