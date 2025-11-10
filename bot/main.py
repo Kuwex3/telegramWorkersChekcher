@@ -7,7 +7,7 @@ from aiogram.enums import ParseMode
 from bot.sources.keyboards import firstStartKeyboard
 import bot.handlers.registerHandler as handler
 
-from logs.logsHandlers.startHandler import startLogger
+from logs.logsHandlers.startLogger import startLogger
 
 import os
 from dotenv import load_dotenv
