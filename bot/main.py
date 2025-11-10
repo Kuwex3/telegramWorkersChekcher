@@ -5,7 +5,7 @@ from aiogram.filters.command import Command
 from aiogram.enums import ParseMode
 
 from bot.sources.keyboards import firstStartKeyboard
-import bot.handlers as handler
+import bot.handlers.registerHandler as handler
 
 from logs.logsHandlers.startHandler import startLogger
 
