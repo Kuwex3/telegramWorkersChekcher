@@ -28,6 +28,7 @@ async def start_handler(message: types.message):
     await message.answer(f"{FM}", parse_mode=ParseMode.HTML, reply_markup=firstStartKeyboard)
 
 async def main():
+    print("Bot started!")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":

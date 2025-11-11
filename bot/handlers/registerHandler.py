@@ -7,6 +7,7 @@ router = Router()
 
 @router.callback_query(F.data == "RegWorker")
 async def echo_handler(callback: types.CallbackQuery):
+    waitingCompanyName = True
     rgWLog.regWorkerLog(callback.from_user.id, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
     await callback.message.answer("Du bist a worker!")
     await callback.answer()
