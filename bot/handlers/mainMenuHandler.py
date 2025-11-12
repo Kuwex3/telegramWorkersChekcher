@@ -12,6 +12,6 @@ from bot.sources.keyboards import firstStartKeyboard
 
 router = Router()
 
-@router.callpresaveMsgback_query(F.data == "BackToMenu")
+@router.callback_query(F.data == "BackToMenu")
 async def getMainMenu(callback: types.CallbackQuery):
     await callback.message.edit_text(f"{presaveMsg}", reply_markup=firstStartKeyboard, parse_mode="HTML")
