@@ -5,6 +5,8 @@ btnRegWorker = InlineKeyboardButton(text="Рабочий👷‍♂️", callback
 
 btnBackMenu = InlineKeyboardButton(text="⬅️Назад", callback_data="BackToMenu")
 
-firstStartKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnRegOwner, btnRegWorker]])
+btnYesRegisterCompany = InlineKeyboardButton(text="Да✅", callback_data="YesRegisterCompany")
 
+firstStartKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnRegOwner, btnRegWorker]])
 backToMainMenuBeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnBackMenu]])
+registerCompanyKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnYesRegisterCompany, btnBackMenu]])
