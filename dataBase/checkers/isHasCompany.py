@@ -1,5 +1,4 @@
-from dataBase.config import HOST, PORT, DATABASE, USR, PASSWORDDB, conn, curs
-import psycopg2 as ps
+from dataBase.config import conn, curs
 
 def checkCompany(tgid):
     curs.execute("SELECT isowner FROM tg_users WHERE tgid = %s", (tgid,))
