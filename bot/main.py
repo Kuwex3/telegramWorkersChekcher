@@ -11,6 +11,7 @@ import bot.handlers.registerHandler as handler
 import bot.handlers.mainMenuHandler as menuHan
 import bot.handlers.registerCompany as regComp
 import bot.handlers.registerCompanyButtonsHandler as regCpBtns
+import bot.handlers.admin as admin
 
 
 from logs.logsHandlers.startLogger import startLogger
@@ -30,6 +31,7 @@ dp.include_router(regComp.router)
 dp.include_router(handler.router)
 dp.include_router(menuHan.router)
 dp.include_router(regCpBtns.router)
+dp.include_router(admin.router)
 
 @dp.message(Command("start"))
 async def start_handler(message: types.message, state: FSMContext):

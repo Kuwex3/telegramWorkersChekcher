@@ -1,7 +1,7 @@
 from aiogram import F, types, Router
 from aiogram.fsm.context import FSMContext
 
-from bot.handlers.classes import CompanyReg
+from bot.sources.classes import CompanyReg
 
 from bot.sources.keyboards import registerCompanyKeyboard
 

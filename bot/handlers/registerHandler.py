@@ -5,7 +5,7 @@ from logs.logsHandlers import registerOwnerLogger as rgLog
 from logs.logsHandlers import registerWorkerLogger as rgWLog
 
 from bot.sources.keyboards import backToMainMenuBeyboard
-from bot.handlers.classes import CompanyReg
+from bot.sources.classes import CompanyReg
 
 from dataBase.checkers.isHasCompany import checkCompany
 
