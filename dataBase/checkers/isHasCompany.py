@@ -1,4 +1,4 @@
-from dataBase.config import conn, curs
+from dataBase.config import curs
 
 def checkCompany(tgid):
     curs.execute("SELECT isowner FROM tg_users WHERE tgid = %s", (tgid,))

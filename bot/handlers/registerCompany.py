@@ -16,3 +16,4 @@ async def regCompany(message: types.Message, state: FSMContext):
         msgForEdit = data.get("messageForEdit")
         if nameCompany:
             await msgForEdit.edit_text(f"Вы хотите зарегистрировать компанию: {nameCompany}?", reply_markup=registerCompanyKeyboard)
+            await state.set_data({"companyName": nameCompany, "ownerName": message.from_user.first_name, "ownerTgID": message.from_user.id})
