@@ -8,7 +8,7 @@ btnBackMenu = InlineKeyboardButton(text="⬅️Назад", callback_data="BackT
 btnYesRegisterCompany = InlineKeyboardButton(text="Да✅", callback_data="YesRegisterCompany")
 
 btnCheckAllCompanies = InlineKeyboardButton(text="Все компании📋", callback_data="CheckAllCompanies")
-btnCheckAllWorkers = InlineKeyboardButton(text="Все работники📋", callback_data="CheckAllWorkers")
+btnCheckAllWorkers = InlineKeyboardButton(text="Все работники👷‍♂️", callback_data="CheckAllWorkers")
 
 firstStartKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnRegOwner, btnRegWorker]])
 backToMainMenuBeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnBackMenu]])
