@@ -14,3 +14,4 @@ firstStartKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnRegOwner, btnRegW
 backToMainMenuBeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnBackMenu]])
 registerCompanyKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnYesRegisterCompany, btnBackMenu]])
 adminKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnCheckAllCompanies, btnCheckAllWorkers, btnBackMenu]])
+adminKeyboardInCompanyMenu = InlineKeyboardMarkup(inline_keyboard=[[btnCheckAllWorkers, btnBackMenu]])
