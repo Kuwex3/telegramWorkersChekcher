@@ -7,6 +7,7 @@ def checkCompany(tgid):
     if data == (True,):
         curs.execute("SELECT name FROM companies WHERE ownertgid = %s", (tgid,))
         companyName = curs.fetchone()
-        return ["У вас уже есть активная компания: ", companyName]
+        print(type(companyName))
+        return companyName
     else:
         return "User doesn't has company!"
