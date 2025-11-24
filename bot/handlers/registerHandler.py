@@ -9,12 +9,19 @@ from bot.sources.classes import CompanyReg
 
 from dataBase.checkers.isHasCompany import checkCompany
 
+import os
+import dotenv
+
+dotenv.load_dotenv()
+
+worker_presave_message = os.getenv("WORKER_MESSAGE")
+
 router = Router()
 
 @router.callback_query(F.data == "RegWorker")
 async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     rgWLog.regWorkerLog(callback.from_user.id, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
-    await callback.message.edit_text("Du bist a worker!", reply_markup=backToMainMenuBeyboard)
+    await callback.message.edit_text(worker_presave_message, reply_markup=backToMainMenuBeyboard, parse_mode="HTML")
     await callback.answer()
     
 @router.callback_query(F.data == "RegOwner")
