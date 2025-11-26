@@ -6,3 +6,5 @@ def isWorker(mass):
     
     if data[0] == True:
         return data
+    else:
+        return "successfull"
