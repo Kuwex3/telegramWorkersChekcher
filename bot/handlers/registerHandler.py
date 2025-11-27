@@ -8,6 +8,7 @@ from bot.sources.keyboards import backToMainMenuBeyboard
 from bot.sources.classes import CompanyReg
 
 from dataBase.checkers.isHasCompany import checkCompany
+from dataBase.checkers.isWorker import isWorker
 
 import os
 import dotenv
@@ -22,7 +23,8 @@ router = Router()
 async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     rgWLog.regWorkerLog(callback.from_user.id, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
     await callback.message.edit_text(worker_presave_message, reply_markup=backToMainMenuBeyboard, parse_mode="HTML")
-    result = 0
+    user_data = [callback.from_user.id]
+    result = isWorker(user_data)
     await callback.answer()
     
 @router.callback_query(F.data == "RegOwner")
