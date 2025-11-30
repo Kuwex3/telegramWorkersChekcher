@@ -1,6 +1,8 @@
-from dataBase.config import curs
+from dataBase.setDbConnect import get_conn
 
 def checkCompany(tgid):
+    conn = get_conn()
+    curs = conn.cursor()
     curs.execute("SELECT isowner FROM tg_users WHERE tgid = %s", (tgid,))
     data = curs.fetchone()
     print(data)

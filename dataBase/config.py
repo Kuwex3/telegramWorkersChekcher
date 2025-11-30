@@ -10,12 +10,4 @@ DATABASE = os.getenv("DATABASE")
 USR = os.getenv("USR")
 PASSWORDDB = os.getenv("PASSWORDDB")
 
-conn = ps.connect(
-    host = HOST,
-    port = PORT,
-    database = DATABASE,
-    user = USR,
-    password = PASSWORDDB
-)
-
-curs = conn.cursor()
+data = [HOST, PORT, DATABASE, USR, PASSWORDDB]
