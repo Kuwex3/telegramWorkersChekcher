@@ -3,6 +3,12 @@ from dataBase.setDbConnect import get_conn
 def regCompany(mass):
     conn = get_conn()
     curs = conn.cursor()
-    curs.execute("INSERT INTO companies (name, ownername, ownertgid) VALUES (%s, %s, %s)", (mass[0], mass[1], mass[2]))
-    curs.execute("INSERT INTO tg_users (name, isowner, tgid) VALUES (%s, %s, %s)", (mass[1], True, mass[2]))
-    conn.commit()
+    try:
+        curs.execute("INSERT INTO companies (name, ownername, ownertgid) VALUES (%s, %s, %s)", (mass[0], mass[1], mass[2]))
+        curs.execute("INSERT INTO tg_users (name, isowner, tgid) VALUES (%s, %s, %s)", (mass[1], True, mass[2]))
+        conn.commit()
+    except Exception as ex:
+        return f"bad: {ex}"
+    finally:
+        conn.close()
+        curs.close()
