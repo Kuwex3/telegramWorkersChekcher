@@ -14,6 +14,7 @@ import bot.handlers.registerCompanyButtonsHandler as regCpBtns
 import bot.handlers.adminMenu as adminMenu
 import bot.handlers.adminGetAllCompanies as adGetComp
 
+from dataBase.checkers.isUser import isUser
 
 from logs.logsHandlers.startLogger import startLogger
 
@@ -41,6 +42,9 @@ async def start_handler(message: types.message, state: FSMContext):
     send_msg = await message.answer(f"{FM}", parse_mode=ParseMode.HTML, reply_markup=firstStartKeyboard)
     await state.update_data(first_msg_id = send_msg.message_id)
     data = await state.get_data()
+    mass = [message.from_user.id, message.from_user.first_name]
+    print(mass)
+    isUser(mass)
     print(data.get("first_msg_id"))
 
 async def main():
