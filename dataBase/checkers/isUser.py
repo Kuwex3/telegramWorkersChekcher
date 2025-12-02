@@ -9,10 +9,8 @@ def isUser(data):
         curs.execute("SELECT id FROM tg_users WHERE tgid = %s", (tg_id,))
         result = curs.fetchone()
         if result is not None:
-            print("BAD")
             return "is user!"
         else:
-            print("REG!")
             curs.execute("INSERT INTO tg_users (tgid, name) VALUES (%s, %s)", (tg_id, name))
             conn.commit()
             return "reg!"

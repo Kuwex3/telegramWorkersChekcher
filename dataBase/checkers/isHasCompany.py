@@ -11,9 +11,9 @@ def checkCompany(tgid):
             curs.execute("SELECT name FROM companies WHERE ownertgid = %s", (tgid,))
             companyName = curs.fetchone()
             print(type(companyName))
-            return companyName
+            return ["user has company!", companyName]
         else:
-            return "User doesn't has company!"
+            return ["User doesn't has company!"]
     except Exception as ex:
         return f"bad: {ex}"
     finally:
