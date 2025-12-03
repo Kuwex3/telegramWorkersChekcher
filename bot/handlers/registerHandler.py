@@ -25,10 +25,10 @@ async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     user_data = [callback.from_user.id]
     print(user_data)
     result = isWorker(user_data)
-    if result == "not worker":
+    if result[0] == "not worker":
         await callback.message.edit_text("Вы пока что не являетесь работником, выберите компанию ниже!", reply_markup=backToMainMenuBeyboard)
-    if result == "is worker":
-        await callback.message.edit_text("Вы уже работаете в компании!", reply_markup=backToMainMenuBeyboard)
+    if result[0] == "is worker":
+        await callback.message.edit_text(f"Вы уже работаете в компании: <b>{result[1][0]}</b>", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
     await callback.answer()
     
 @router.callback_query(F.data == "RegOwner")
