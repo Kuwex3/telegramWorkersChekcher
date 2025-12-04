@@ -38,7 +38,7 @@ async def buttonHandlers(callback: types.CallbackQuery, state: FSMContext):
     if result[0] == "user has company!":
         await callback.message.edit_text(f"У вас уже есть компания <b>{result[1][0]}</b>😉", reply_markup=backToMainMenuBeyboard, parse_mode="HTML")
     elif result[0] == "User doesn't has company!":
-        await callback.message.edit_text("Регистрация компании. Отправьте название своей фирмы!", reply_markup=backToMainMenuBeyboard)
+        await callback.message.edit_text("Регистрация компании. Отправьте название своей фирмы сообщением!", reply_markup=backToMainMenuBeyboard)
         await state.set_data({"messageForEdit": callback.message})
         await state.set_state(CompanyReg.waitingNameCompany)
     await callback.answer()
