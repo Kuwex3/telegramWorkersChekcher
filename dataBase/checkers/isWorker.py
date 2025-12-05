@@ -11,8 +11,9 @@ def isWorker(mass):
             company = getWorkerCompanyName(mass[0])
             result = ["is worker", company]
             return result
-        else:
-            return "not worker"
+        elif data[0] == None:
+            result = ["not worker", "Вы не являетесь работником"]
+            return result
     except Exception as ex:
         return f"bad: {ex}"
     finally:
