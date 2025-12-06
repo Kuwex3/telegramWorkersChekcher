@@ -10,7 +10,7 @@ load_dotenv()
 
 presaveMsg = os.getenv("FIRST_MESSAGE")
 
-from bot.sources.keyboards import firstStartKeyboard
+from bot.sources.keyboards import backToMainMenuBeyboard
 
 router = Router()
 
@@ -23,4 +23,4 @@ async def getMainMenu(callback: types.CallbackQuery, state: FSMContext):
     mass = [companyName, ownerName, ownerTgID]
     regCompany(mass)
     await state.clear()
-    await callback.message.edit_text("Вы успешно зарегистрировали компанию!", reply_markup=firstStartKeyboard)
+    await callback.message.edit_text("Вы успешно зарегистрировали компанию!", reply_markup=backToMainMenuBeyboard)
