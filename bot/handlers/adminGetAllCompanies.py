@@ -11,7 +11,6 @@ async def sendCompanies(callback: types.CallbackQuery):
     data = getCompanies()
     presaveText = []
     for i in data:
-        print(i[0])
         presaveText.append(f"Название компании: <b>{i[0]}</b>")
         presaveText.append(f"Имя владельца компании: <b>{i[1]}</b>")
         presaveText.append("-----------------------------------------------------")

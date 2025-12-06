@@ -43,11 +43,8 @@ async def start_handler(message: types.message, state: FSMContext):
     startLogger(message.from_user.first_name, message.from_user.last_name, message.from_user.username, message.from_user.id)
     send_msg = await message.answer(f"{FM}", parse_mode=ParseMode.HTML, reply_markup=firstStartKeyboard)
     await state.update_data(first_msg_id = send_msg.message_id)
-    data = await state.get_data()
     mass = [message.from_user.id, message.from_user.first_name]
-    print(mass)
     isUser(mass)
-    print(data.get("first_msg_id"))
 
 async def main():
     print("Bot started!")
