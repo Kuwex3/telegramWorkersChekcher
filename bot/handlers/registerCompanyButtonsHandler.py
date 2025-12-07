@@ -3,6 +3,8 @@ from aiogram.fsm.context import FSMContext
 
 from dataBase.midlewares.registerCompany import regCompany
 
+from dataBase.getMidlewares.getUniqueCode import getUnique
+
 from dotenv import load_dotenv
 import os
 
@@ -22,5 +24,6 @@ async def getMainMenu(callback: types.CallbackQuery, state: FSMContext):
     ownerTgID = data.get("ownerTgID")
     mass = [companyName, ownerName, ownerTgID]
     regCompany(mass)
+    code = getUnique(mass[2])
     await state.clear()
-    await callback.message.edit_text("Вы успешно зарегистрировали компанию!", reply_markup=backToMainMenuBeyboard)
+    await callback.message.edit_text(f"Вы успешно зарегистрировали компанию!\n<b>Уникальный код для сотрудников: {code[0]}</b>", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)

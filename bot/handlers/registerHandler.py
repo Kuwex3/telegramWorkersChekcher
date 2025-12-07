@@ -10,6 +10,8 @@ from bot.sources.classes import CompanyReg
 from dataBase.checkers.isHasCompany import checkCompany
 from dataBase.checkers.isWorker import isWorker
 
+from dataBase.getMidlewares.getUniqueCode import getUnique
+
 import os
 import dotenv
 
@@ -35,7 +37,8 @@ async def buttonHandlers(callback: types.CallbackQuery, state: FSMContext):
     rgLog.regOwnerLog(callback.from_user.id, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
     result = checkCompany(callback.from_user.id)
     if result[0] == "user has company!":
-        await callback.message.edit_text(f"У вас уже есть компания <b>{result[1][0]}</b>😉", reply_markup=backToMainMenuBeyboard, parse_mode="HTML")
+        uniqueCode = getUnique(callback.from_user.id)
+        await callback.message.edit_text(f"У вас уже есть компания <b>{result[1][0]}</b>😉\nУникальный код для сотрудников: <b>{uniqueCode[0]}</b>", reply_markup=backToMainMenuBeyboard, parse_mode="HTML")
     elif result[0] == "User doesn't has company!":
         await callback.message.edit_text("Регистрация компании. Отправьте название своей фирмы сообщением!", reply_markup=backToMainMenuBeyboard)
         await state.set_data({"messageForEdit": callback.message})
