@@ -28,7 +28,8 @@ async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     result = isWorker(user_data)
     if result[0] == "not worker":
         await callback.message.edit_text("Вы не являетесь работником, отправьте уникальный код компании в которую хотите устроиться.", reply_markup=backToMainMenuBeyboard)
-        state.set_state(WorkerReg.waitingToWriteCode)
+        await state.set_data({"msgForEdit": callback.message})
+        await state.set_state(WorkerReg.waitingToWriteCode)
     if result[0] == "is worker":
         await callback.message.edit_text(f"Вы уже работаете в компании: <b>{result[1][0]}</b>", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
     await callback.answer()

@@ -14,6 +14,7 @@ import bot.handlers.registerCompanyButtonsHandler as regCpBtns
 import bot.handlers.adminMenu as adminMenu
 import bot.handlers.adminGetAllCompanies as adGetComp
 import bot.handlers.adminGetAllWorkers as adGetWorkers
+import bot.handlers.writeCodeHandler as WriteCode
 
 from dataBase.checkers.isUser import isUser
 
@@ -37,6 +38,7 @@ dp.include_router(regCpBtns.router)
 dp.include_router(adminMenu.router)
 dp.include_router(adGetComp.router)
 dp.include_router(adGetWorkers.router)
+dp.include_router(WriteCode.router)
 
 @dp.message(Command("start"))
 async def start_handler(message: types.message, state: FSMContext):
