@@ -5,7 +5,7 @@ from logs.logsHandlers import registerOwnerLogger as rgLog
 from logs.logsHandlers import registerWorkerLogger as rgWLog
 
 from bot.sources.keyboards import backToMainMenuBeyboard
-from bot.sources.classes import CompanyReg
+from bot.sources.classes import CompanyReg, WorkerReg
 
 from dataBase.checkers.isHasCompany import checkCompany
 from dataBase.checkers.isWorker import isWorker
@@ -27,7 +27,8 @@ async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     user_data = [callback.from_user.id]
     result = isWorker(user_data)
     if result[0] == "not worker":
-        await callback.message.edit_text("Вы пока что не являетесь работником, выберите компанию ниже!", reply_markup=backToMainMenuBeyboard)
+        await callback.message.edit_text("Вы не являетесь работником, отправьте уникальный код компании в которую хотите устроиться.", reply_markup=backToMainMenuBeyboard)
+        state.set_state(WorkerReg.waitingToWriteCode)
     if result[0] == "is worker":
         await callback.message.edit_text(f"Вы уже работаете в компании: <b>{result[1][0]}</b>", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
     await callback.answer()

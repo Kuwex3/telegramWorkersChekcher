@@ -4,3 +4,6 @@ class CompanyReg(StatesGroup):
     waitingNameCompany = State()
     waitingInviteToCompany = State()
     waitingToWriteCompany = State()
+
+class WorkerReg(StatesGroup):
+    waitingToWriteCode = State()
