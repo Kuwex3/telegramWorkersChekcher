@@ -11,7 +11,7 @@ def checkCode(user_code):
             return data
         else:
             print("fetching is bad")
-            return "not has company"
+            return ["not has company"]
     except Exception as ex:
         return f"ex! {ex}"
     finally:
