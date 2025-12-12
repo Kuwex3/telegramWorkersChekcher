@@ -17,6 +17,7 @@ async def enterCodeHandler(message: types.Message, state: FSMContext):
     msg = data.get("msgForEdit")
     print(result)
     if result[0] != "not has company":
+        await state.set_data({"companyNameForJoin": result[0]})
         await msg.edit_text(f"Вы действительно хотите присоединится к компании {result[0]}?", parse_mode="HTML", reply_markup=joinKeyboard)
     else:
         await msg.edit_text(f"Компании нет!", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
