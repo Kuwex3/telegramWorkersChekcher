@@ -7,11 +7,11 @@ def isWorker(mass):
     try:
         curs.execute("SELECT isworker FROM tg_users WHERE tgid = %s", (mass[0],))
         data = curs.fetchone()
-        if data[0] == True:
+        if data:
             company = getWorkerCompanyName(mass[0])
             result = ["is worker", company]
             return result
-        elif data[0] == None:
+        else:
             result = ["not worker", "Вы не являетесь работником"]
             return result
     except Exception as ex:
