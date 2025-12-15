@@ -26,12 +26,13 @@ async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     rgWLog.regWorkerLog(callback.from_user.id, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
     user_data = [callback.from_user.id]
     result = isWorker(user_data)
+    print(result)
     if result[0] == "not worker":
         await callback.message.edit_text("Вы не являетесь работником, отправьте уникальный код компании в которую хотите устроиться.", reply_markup=backToMainMenuBeyboard)
         await state.set_data({"msgForEdit": callback.message})
         await state.set_state(WorkerReg.waitingToWriteCode)
     if result[0] == "is worker":
-        await callback.message.edit_text(f"Вы уже работаете в компании: <b>{result[1][0]}</b>", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
+        await callback.message.edit_text(f"Вы уже работаете в компании: <b>{result[1]}</b>", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
     await callback.answer()
     
 @router.callback_query(F.data == "RegOwner")

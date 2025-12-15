@@ -7,7 +7,8 @@ def isWorker(mass):
     try:
         curs.execute("SELECT isworker FROM tg_users WHERE tgid = %s", (mass[0],))
         data = curs.fetchone()
-        if data:
+        print(data)
+        if data[0] == True:
             company = getWorkerCompanyName(mass[0])
             result = ["is worker", company]
             return result
