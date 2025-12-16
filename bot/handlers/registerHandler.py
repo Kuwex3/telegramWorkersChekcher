@@ -26,7 +26,6 @@ async def echo_handler(callback: types.CallbackQuery, state: FSMContext):
     rgWLog.regWorkerLog(callback.from_user.id, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
     user_data = [callback.from_user.id]
     result = isWorker(user_data)
-    print(result)
     if result[0] == "not worker":
         await callback.message.edit_text("Вы не являетесь работником, отправьте уникальный код компании в которую хотите устроиться.", reply_markup=backToMainMenuBeyboard)
         await state.set_data({"msgForEdit": callback.message})

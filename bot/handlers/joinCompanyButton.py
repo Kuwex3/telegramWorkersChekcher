@@ -9,4 +9,4 @@ router = Router()
 async def JoinToCompany(callback: types.CallbackQuery, state: FSMContext):
     data = await state.get_data()
     company = data.get("companyNameForJoin")
-    await callback.message.edit_text(f"Вы присоединились к компании {company}!", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
+    await callback.message.edit_text(f"Вы отправили заявление на присоединение к компании <b>{company}</b>!\nПодождите когда владелец его рассмотрит.", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
