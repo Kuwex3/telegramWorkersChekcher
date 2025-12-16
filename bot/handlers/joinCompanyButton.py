@@ -3,10 +3,15 @@ from aiogram.fsm.context import FSMContext
 
 from bot.sources.keyboards import backToMainMenuBeyboard
 
+from dataBase.midlewares.sendCompanyOwnerMessage import sendOwnerMessage as so
+from dataBase.getMidlewares.getOwnerId import getOwnerId
+
 router = Router()
 
 @router.callback_query(F.data == "YesJoinToCompany")
 async def JoinToCompany(callback: types.CallbackQuery, state: FSMContext):
     data = await state.get_data()
     company = data.get("companyNameForJoin")
+    ownerId = getOwnerId(company)
+    await so(ownerId, callback.bot)
     await callback.message.edit_text(f"Вы отправили заявление на присоединение к компании <b>{company}</b>!\nПодождите когда владелец его рассмотрит.", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
