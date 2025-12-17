@@ -8,7 +8,7 @@ def getAllWorkersDef():
         data = curs.fetchall()
         return data
     except Exception as ex:
-        return f"bad! {ex}"
+        return f"bad! error: {ex}"
     finally:
         conn.close()
         curs.close()
