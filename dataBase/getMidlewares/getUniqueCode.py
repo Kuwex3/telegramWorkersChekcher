@@ -8,7 +8,7 @@ def getUnique(tg_id):
         data = curs.fetchall()
         return data[0]
     except Exception as ex:
-        return f"ex {ex}"
+        return f"ex! error: {ex}"
     finally:
         conn.close()
         curs.close()
