@@ -11,7 +11,7 @@ def getWorkerCompanyName(tgid):
         else:
             return "error from fetching company"
     except Exception as ex:
-        return f"bad! error: {ex}"
+        return f"ex! error: {ex}"
     finally:
         conn.close()
         curs.close()
