@@ -7,6 +7,9 @@ btnBackMenu = InlineKeyboardButton(text="⬅️Назад", callback_data="BackT
 
 btnYesRegisterCompany = InlineKeyboardButton(text="Да✅", callback_data="YesRegisterCompany")
 btnYesJoinToCompany = InlineKeyboardButton(text="Да✅", callback_data="YesJoinToCompany")
+btnYesAcceptToCompany = InlineKeyboardButton(text="Принять✅", callback_data="YesAcceptToCompany")
+
+btnNoDeniedToCompany = InlineKeyboardButton(text="Отклонить❌", callback_data="NoDeniedToCompany")
 
 btnCheckAllCompanies = InlineKeyboardButton(text="Все компании📋", callback_data="CheckAllCompanies")
 btnCheckAllWorkers = InlineKeyboardButton(text="Все работники👷‍♂️", callback_data="CheckAllWorkers")
@@ -20,3 +23,5 @@ adminKeyboardInCompanyMenu = InlineKeyboardMarkup(inline_keyboard=[[btnCheckAllW
 adminKeyboardInWorkerMenu = InlineKeyboardMarkup(inline_keyboard=[[btnCheckAllCompanies, btnBackMenu]])
 
 joinKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnYesJoinToCompany, btnBackMenu]])
+
+acceptKeyboard = InlineKeyboardMarkup(inline_keyboard=[[btnYesAcceptToCompany, btnNoDeniedToCompany]])
