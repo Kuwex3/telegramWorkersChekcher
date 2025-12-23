@@ -7,8 +7,8 @@ btnBackMenu = InlineKeyboardButton(text="⬅️Назад", callback_data="BackT
 
 btnYesRegisterCompany = InlineKeyboardButton(text="Да✅", callback_data="YesRegisterCompany")
 btnYesJoinToCompany = InlineKeyboardButton(text="Да✅", callback_data="YesJoinToCompany")
-btnYesAcceptToCompany = InlineKeyboardButton(text="Принять✅", callback_data="YesAcceptToCompany")
 
+btnYesAcceptToCompany = InlineKeyboardButton(text="Принять✅", callback_data="YesAcceptToCompany")
 btnNoDeniedToCompany = InlineKeyboardButton(text="Отклонить❌", callback_data="NoDeniedToCompany")
 
 btnCheckAllCompanies = InlineKeyboardButton(text="Все компании📋", callback_data="CheckAllCompanies")

@@ -15,3 +15,4 @@ async def JoinToCompany(callback: types.CallbackQuery, state: FSMContext):
     ownerId = getOwnerId(company)
     await so(ownerId, callback.bot, callback.from_user.first_name, callback.from_user.last_name, callback.from_user.username)
     await callback.message.edit_text(f"Вы отправили заявление на присоединение к компании <b>{company}</b>!\nПодождите когда владелец его рассмотрит.", parse_mode="HTML", reply_markup=backToMainMenuBeyboard)
+    await state.clear()
