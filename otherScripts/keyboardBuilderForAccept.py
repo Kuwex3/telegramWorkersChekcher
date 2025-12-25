@@ -1,8 +1,7 @@
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-def getKeyboard(tgid):
-    print(f"YesAcceptToCompany{tgid}")
+def getKeyboard(tgid, company):
     builder = InlineKeyboardBuilder()
-    builder.button(text="Принять✅", callback_data=f"YesAcceptToCompany{tgid}")
-    builder.button(text="Отклонить❌", callback_data=f"NoDeniedToCompany{tgid}")
+    builder.button(text="Принять✅", callback_data=f"YesAcceptToCompany{tgid}U{company}")
+    builder.button(text="Отклонить❌", callback_data=f"NoDeniedToCompany{tgid}U{company}")
     return builder.as_markup()
