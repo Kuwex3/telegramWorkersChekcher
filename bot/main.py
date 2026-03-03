@@ -53,7 +53,7 @@ async def start_handler(message: types.message, state: FSMContext):
     isUser(mass)
 
 async def main():
-    print("Bot started!")
+    print("Bot started")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
